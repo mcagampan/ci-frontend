@@ -1,0 +1,70 @@
+<div class="container is-fluid">
+  <div class="box mt-6">
+    <div class="is-flex">
+      <p class="header__text mb-4" style="flex: auto">CLIENTS</p>
+      <button class="button is-primary" (click)="newClient()">New</button>
+    </div>
+    <ul>
+      <li *ngFor="let client of clients" class="mb-3">
+        <div class="client__wrapper">
+          <div class="primary__info">
+            <p class="info--1">{{ client.name }}</p>
+            <p class="info--2">{{ client.email }}</p>
+          </div>
+          <button class="button is-info" (click)="edit(client)">Edit</button>
+          <button class="button is-danger ml-3" (click)="delete(client)">
+            Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div #clientEditModal class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <form [formGroup]="clientForm">
+        <p *ngIf="selectedClient && selectedClient.id" class="m-4">
+          Edit client
+        </p>
+        <p *ngIf="selectedClient && !selectedClient.id" class="m-4">
+          New client
+        </p>
+        <div class="is-flex">
+          <input
+            formControlName="name"
+            class="input m-4"
+            type="text"
+            placeholder="Client name"
+          />
+          <input
+            formControlName="email"
+            class="input m-4"
+            type="email"
+            placeholder="Client email"
+          />
+        </div>
+        <div class="is-flex mr-4">
+          <p style="flex: auto">{{ errorMessage }}</p>
+          <button
+            *ngIf="selectedClient && selectedClient.id"
+            class="button is-primary"
+            (click)="saveEdit()"
+          >
+            Save
+          </button>
+          <button
+            *ngIf="selectedClient && !selectedClient.id"
+            class="button is-primary"
+            (click)="saveNewClient()"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button class="modal-close is-large m-4" aria-label="close"></button>
+</div>

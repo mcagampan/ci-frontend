@@ -1,0 +1,22 @@
+.login__container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sand-dollar);
+}
+
+.login__form {
+  width: 45vw;
+  min-height: 450px;
+}
+
+.tabs__content {
+  padding: 16px 64px;
+}
+
+.error__message {
+  margin-left: auto;
+  color: var(--honeysuckle);
+}

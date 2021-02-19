@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --gray: #bdc3cb;
+  --gray-dark: #525252;
+  --ivory: #ede7dc;
+  --sand-dollar: #dcd2cc;
+  --honeysuckle: #c44b4f;
+}
+
+$primary: var(--gray);
+$info: var(--ivory);
+$success: var(--ivory);
+$warning: var(--honeysuckle);
+$danger: var(--honeysuckle);
+$dark: var(--gray-dark);
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: normal;
+  src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  font-weight: bold;
+  src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+@import "~bulma/css/bulma.min.css";
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "Montserrat";
+}

@@ -1,0 +1,72 @@
+<div class="login__container">
+  <div class="login__form box">
+    <div class="tabs is-fullwidth">
+      <ul>
+        <li
+          [ngClass]="{ 'is-active': selectedTab === 'register' }"
+          (click)="selectedTab = 'register'"
+        >
+          <a>Register</a>
+        </li>
+        <li
+          [ngClass]="{ 'is-active': selectedTab === 'signIn' }"
+          (click)="selectedTab = 'signIn'"
+        >
+          <a>Login</a>
+        </li>
+      </ul>
+    </div>
+    <div class="tabs__content">
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="register()"
+        [ngStyle]="{ display: selectedTab === 'register' ? 'block' : 'none' }"
+      >
+        <input
+          formControlName="name"
+          class="input is-medium mb-3"
+          type="text"
+          placeholder="Full name"
+        />
+        <input
+          formControlName="email"
+          class="input is-medium mb-3"
+          type="email"
+          placeholder="Email address"
+        />
+        <input
+          formControlName="password"
+          class="input is-medium mb-3"
+          type="password"
+          placeholder="Password"
+        />
+        <div class="is-flex is-align-items-center">
+          <button type="submit" class="button is-primary">Register</button>
+          <h1 class="error__message">{{ regErrMessage }}</h1>
+        </div>
+      </form>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        [ngStyle]="{ display: selectedTab === 'signIn' ? 'block' : 'none' }"
+      >
+        <input
+          formControlName="email"
+          class="input is-medium mb-3"
+          type="email"
+          placeholder="Email address"
+        />
+        <input
+          formControlName="password"
+          class="input is-medium mb-3"
+          type="password"
+          placeholder="Password"
+        />
+        <div class="is-flex is-align-items-center">
+          <button class="button is-primary">Login</button>
+          <h1 class="error__message">{{ loginErrMessage }}</h1>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
